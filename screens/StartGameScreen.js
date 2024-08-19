@@ -1,10 +1,12 @@
 import { TextInput, View } from "react-native";
+import PrimaryButton from "../components/PrimaryButton";
 
 const StaraGameScreen = () => {
   return (
     <View>
       <TextInput />
-      Buttons
+      <PrimaryButton>Reset</PrimaryButton>
+      <PrimaryButton>Confirm</PrimaryButton>
     </View>
   );
 };
