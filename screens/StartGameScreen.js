@@ -4,7 +4,13 @@ import PrimaryButton from "../components/PrimaryButton";
 const StaraGameScreen = () => {
   return (
     <View style={styles.inputContainer}>
-      <TextInput style={styles.input} maxLength={2} />
+      <TextInput
+        style={styles.input}
+        maxLength={2}
+        keyboardType="number-pad"
+        autoCapitalize="none"
+        autoCorrect={false}
+      />
       <PrimaryButton>Reset</PrimaryButton>
       <PrimaryButton>Confirm</PrimaryButton>
     </View>
