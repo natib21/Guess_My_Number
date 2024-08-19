@@ -4,15 +4,14 @@ import { LinearGradient } from "expo-linear-gradient";
 import StaraGameScreen from "./screens/StartGameScreen";
 export default function App() {
   return (
-    <View style={styles.rootScreen}>
+    <LinearGradient colors={["#4e0329", "#ddb52f"]} style={styles.rootScreen}>
       <StaraGameScreen />
-    </View>
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
   rootScreen: {
     flex: 1,
-    backgroundColor: "#ddb52f",
   },
 });
