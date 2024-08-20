@@ -1,7 +1,7 @@
 import { TextInput, View, StyleSheet, Alert } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 import { useState } from "react";
-const StaraGameScreen = () => {
+const StaraGameScreen = ({ onConfirm }) => {
   const [enteredNumber, setEnteredNumber] = useState("");
 
   const numberInputHandler = (e) => {
@@ -24,7 +24,7 @@ const StaraGameScreen = () => {
 
       return;
     }
-    console.log("Valid Number!");
+    onConfirm(enteredNumber);
   };
   return (
     <View style={styles.inputContainer}>
