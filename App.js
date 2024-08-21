@@ -10,7 +10,7 @@ import GameScreen from "./screens/GameScreen";
 export default function App() {
   const [userNumber, setUserNumber] = useState();
   const [gameIsOver, setGameIsOver] = useState(true);
-
+  const [guessRound, setGuessRound] = useState(0);
   const [fontsLoaded] = useFonts({
     "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
     "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
@@ -26,6 +26,12 @@ export default function App() {
   const gameIsOverHandler = () => {
     setGameIsOver(true);
   };
+
+  const startNewGameHandler = () => {
+    setUserNumber(null);
+    setGuessRound(0);
+  };
+
   let screen = <StaraGameScreen onConfirm={pickedNumberHandler} />;
   if (userNumber) {
     screen = (
@@ -33,7 +39,13 @@ export default function App() {
     );
   }
   if (gameIsOver && userNumber) {
-    screen = <GameOverScreen />;
+    screen = (
+      <GameOverScreen
+        userNumber={userNumber}
+        roundsNumber={guessRound}
+        onStartNewGame={startNewGameHandler}
+      />
+    );
   }
 
   return (
