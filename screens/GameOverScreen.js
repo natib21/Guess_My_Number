@@ -46,13 +46,13 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   summaryText: {
-    fontFamily: "open-sans",
+    /* fontFamily: "open-sans", */
     fontSize: 24,
     textAlign: "center",
     marginBottom: 24,
   },
   highLight: {
-    fontFamily: "open-sans",
+    /*    fontFamily: "open-sans", */
     color: "black",
   },
 });
