@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import NumberContainer from "../components/game/NumberContainer";
 import Card from "../components/ui/Card";
 import InstructionText from "../components/ui/InstructionText";
+import GuessLogItems from "../components/game/GuessLogItems";
 const generateRandomBetween = (min, max, exclude) => {
   const rndNum = Math.floor(Math.random() * (max - min)) + min;
 
@@ -56,6 +57,7 @@ const GameScreen = ({ userNumber, onGameOver }) => {
     setCurrentGuess(newRandomNumber);
     setGuessRound((prevGuessRounds) => [newRandomNumber, ...prevGuessRounds]);
   };
+  const guessRoundListLength = guessRound.length;
   return (
     <View style={styles.screen}>
       <Title>Opponent's Guess</Title>
@@ -84,7 +86,14 @@ const GameScreen = ({ userNumber, onGameOver }) => {
         ))} */}
         <FlatList
           data={guessRound}
-          renderItem={(itemData) => <Text>{itemData.item}</Text>}
+          renderItem={(itemData) => (
+            <GuessLogItems
+              roundNumber={guessRoundListLength - itemData.index}
+              guess={itemData.item}
+            >
+              {itemData.item}
+            </GuessLogItems>
+          )}
           keyExtractor={(item) => item}
         />
       </View>
