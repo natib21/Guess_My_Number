@@ -4,6 +4,7 @@ import GameOverScreen from "./screens/GameOverScreen";
 import { StyleSheet, View, ImageBackground, SafeAreaView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AppLoading from "expo-app-loading";
+import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
 /* import * as SplashScreen from "expo-splash-screen"; */
 import StaraGameScreen from "./screens/StartGameScreen";
@@ -51,16 +52,19 @@ export default function App() {
   }
 
   return (
-    <LinearGradient colors={["#4e0329", "#ddb52f"]} style={styles.rootScreen}>
-      <ImageBackground
-        source={require("./assets/image/background.png")}
-        resizeMode="cover"
-        style={styles.rootScreen}
-        imageStyle={styles.backgroundImage}
-      >
-        <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
-      </ImageBackground>
-    </LinearGradient>
+    <>
+      <StatusBar style="light" />
+      <LinearGradient colors={["#4e0329", "#ddb52f"]} style={styles.rootScreen}>
+        <ImageBackground
+          source={require("./assets/image/background.png")}
+          resizeMode="cover"
+          style={styles.rootScreen}
+          imageStyle={styles.backgroundImage}
+        >
+          <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
+        </ImageBackground>
+      </LinearGradient>
+    </>
   );
 }
 
